@@ -27,7 +27,7 @@ export default function AdminLogin() {
   useEffect(() => {
     if (user && !isError) {
       toast.success(`Welcome ${user.username} 🤗`, {
-        position: "top-right",
+        position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,

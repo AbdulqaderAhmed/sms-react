@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { PropagateLoader } from "react-spinners";
 import { logoutAdmin } from "../../feature/admin/auth/authSlice";
 import { toast } from "react-toastify";
+import AdminHeader from "./includes/AdminHeader";
+import AdminSideBar from "./includes/AdminSideBar";
 
 export default function Admin() {
   const { user, isLoading } = useSelector((state) => state.adminAuth);
@@ -36,12 +38,20 @@ export default function Admin() {
   document.title = "Admin | Dashboard";
 
   return (
-    <div>
-      <h1 className="text-3xl underline text-center">
-        Welcome {user.username}
-      </h1>
+    <div className=" bg-gray-100 min-h-screen">
+      <div className="flex flex-col w-full">
+        {/* navbar */}
+        <AdminHeader user={user} logout={handleLogout} />
 
-      <button onClick={handleLogout}>logout</button>
+        {/* body */}
+        <div className="flex flex-row">
+          {/* sidebar */}
+          <AdminSideBar />
+
+          {/* body */}
+          <div>Body</div>
+        </div>
+      </div>
     </div>
   );
 }
