@@ -63,8 +63,8 @@ export default function AdminLogin() {
   document.title = "Admin | Login";
 
   return (
-    <div className="bg-zinc-300 min-h-screen flex justify-center items-center">
-      <div className="bg-gray-200 flex flex-row p-4 gap-7 shadow-lg items-center rounded-2xl ">
+    <div className="bg-zinc-200 min-h-screen flex justify-center items-center">
+      <div className="bg-gray-100 flex flex-row p-4 gap-7 shadow-lg items-center rounded-2xl ">
         {/* inputs */}
         <div className="md:w-1/2 px-4">
           <h1 className="font-bold text-2xl text-[#6C3129] text-center">
