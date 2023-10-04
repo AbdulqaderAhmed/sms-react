@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
 import { logoutAdmin } from "../../feature/admin/auth/authSlice";
 import { toast } from "react-toastify";
@@ -49,6 +50,9 @@ export default function Admin() {
           <AdminSideBar />
 
           {/* body */}
+          <Routes>
+            <Route />
+          </Routes>
           <div>Body</div>
         </div>
       </div>
