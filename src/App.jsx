@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRouter from "./private/PrivateRouter";
@@ -8,11 +8,11 @@ import AdminRegister from "./components/admin/auth/AdminRegister";
 
 export default function App() {
   return (
-    <Router>
+    <>
       <main>
         <Routes>
           <Route
-            path="/admin-dashboard"
+            path="/admin-dashboard/*"
             element={<PrivateRouter component={Admin} />}
           />
           <Route path="/admin-login" element={<AdminLogin />} />
@@ -20,6 +20,6 @@ export default function App() {
         </Routes>
       </main>
       <ToastContainer limit={3} />
-    </Router>
+    </>
   );
 }

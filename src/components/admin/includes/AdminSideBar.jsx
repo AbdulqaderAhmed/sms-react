@@ -11,6 +11,8 @@ import {
   HiHome,
   HiCollection,
 } from "react-icons/hi";
+import { RiParentFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 export default function AdminSideBar() {
@@ -41,7 +43,9 @@ export default function AdminSideBar() {
             }}
           >
             <Sidebar.Item href="#">All Students</Sidebar.Item>
-            <Sidebar.Item href="#">Add Students</Sidebar.Item>
+            <Sidebar.Item href="#">
+              <Link to="/admin-dashboard/admin-student-add">Add Students</Link>
+            </Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse
             icon={HiBriefcase}
@@ -60,6 +64,28 @@ export default function AdminSideBar() {
           >
             <Sidebar.Item href="#">All Teachers</Sidebar.Item>
             <Sidebar.Item href="#">Add Teacher</Sidebar.Item>
+          </Sidebar.Collapse>
+          <Sidebar.Collapse
+            icon={RiParentFill}
+            label="Parent"
+            renderChevronIcon={(theme, open) => {
+              const IconComponent = open ? HiOutlineMinusSm : HiOutlinePlusSm;
+              return (
+                <IconComponent
+                  aria-hidden
+                  className={twMerge(
+                    theme.label.icon.open[open ? "on" : "off"]
+                  )}
+                />
+              );
+            }}
+          >
+            <Sidebar.Item href="#">
+              <Link to="/admin-dashboard/admin-parent-all">All Parent</Link>
+            </Sidebar.Item>
+            <Sidebar.Item href="#">
+              <Link to="/admin-dashboard/admin-parent-add">Add Parent</Link>
+            </Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse
             icon={HiHome}
