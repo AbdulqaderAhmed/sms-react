@@ -33,7 +33,7 @@ export default function AddParent() {
   };
 
   useEffect(() => {
-    if (parent && !isError && parentData) {
+    if (parent && !isError) {
       toast.success(`Parent registerd`, {
         position: "top-right",
         autoClose: 3000,
@@ -44,12 +44,12 @@ export default function AddParent() {
         progress: undefined,
         theme: "light",
       });
-      dispatch(clear);
+      dispatch(clear());
       navigate("/admin-dashboard/admin-parent-all");
     } else {
       toast.error(message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -58,7 +58,8 @@ export default function AddParent() {
         theme: "light",
       });
     }
-  }, [parent, isError, message, navigate, dispatch]);
+    dispatch(clear());
+  }, [parent, isError, message, navigate, dispatch, parentData]);
 
   if (isLoading) {
     return (

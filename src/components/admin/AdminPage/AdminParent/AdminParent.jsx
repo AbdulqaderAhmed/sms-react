@@ -19,7 +19,7 @@ export default function AdminParent() {
   useEffect(() => {
     if (!isError) {
       dispatch(getAllParent(token));
-      dispatch(clear);
+      dispatch(clear());
     } else {
       toast.error(message, {
         position: "top-right",
@@ -31,6 +31,7 @@ export default function AdminParent() {
         progress: undefined,
         theme: "light",
       });
+      dispatch(clear());
     }
   }, [dispatch, isError, message, token]);
 
@@ -43,7 +44,7 @@ export default function AdminParent() {
   }
 
   return (
-    <div className="bg-slate-200 w-5/6 h-5/6 p-5 shadow-xl rounded-2xl">
+    <div className="p-5">
       <h1 className="text-center text-2xl mb-5 font-semibold">Parent list</h1>
 
       <Table hoverable>
